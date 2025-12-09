@@ -8,7 +8,6 @@
 #include <dt-bindings/zmk/backlight.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/outputs.h>
 
 #define MACOS     0
 #define FKEYS     1
@@ -42,7 +41,7 @@
             label = "TAP_DANCE_0";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
-            bindings = <&mo 1>, <&tog 1>, <&tog 4>;
+            bindings = <&mo 1>, <&tog 1>, <&tog 0>;
         };
 
         // Toggle Numbers layer
@@ -52,7 +51,7 @@
             label = "TAP_DANCE_1";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
-            bindings = <&mo 2>, <&tog 3>, <&tog 2>;
+            bindings = <&mo 2>, <&tog 0>, <&tog 2>;
         };
 
         // Toggle capsword left
@@ -373,10 +372,10 @@
             label = "Mac OS";
             sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp LEFT RIGHT>;
             bindings = <
-&kp GRAVE       &kp Q  &kp W      &kp E             &kp R         &kp T                                   &kp Y      &kp U    &kp I              &kp O          &kp P     &kp TAB
-&kp BACKSPACE   &kp A  &kp S      &kp D             &kp F         &kp G                                   &kp H      &kp J    &kp K              &kp L          &kp SEMI  &kp SQT
-&kp LEFT_SHIFT  &kp Z  &kp X      &kp C             &kp V         &kp B      &kp F16       &kp F17        &kp N      &kp M    &kp COMMA          &kp DOT        &kp FSLH  &kp RIGHT_SHIFT
-                       &kp LCTRL  &kp LEFT_COMMAND  &kp LEFT_ALT  &kp SPACE  &lt 1 K_FIND  &lt 2 K_FIND2  &kp ENTER  &kp DEL  &kp RIGHT_COMMAND  &kp RIGHT_ALT
+&kp GRAVE       &kp Q  &kp W      &kp E             &kp R         &kp T                                   &kp Y      &kp U    &kp I         &kp O          &kp P     &kp TAB
+&kp BACKSPACE   &kp A  &kp S      &kp D             &kp F         &kp G                                   &kp H      &kp J    &kp K         &kp L          &kp SEMI  &kp SQT
+&kp LEFT_SHIFT  &kp Z  &kp X      &kp C             &kp V         &kp B      &kp F16       &kp F17        &kp N      &kp M    &kp COMMA     &kp DOT        &kp FSLH  &kp RIGHT_SHIFT
+                       &kp LCTRL  &kp LEFT_COMMAND  &kp LEFT_ALT  &kp SPACE  &lt 1 K_FIND  &lt 2 K_FIND2  &kp ENTER  &kp DEL  &kp CAPSLOCK  &kp RIGHT_ALT
             >;
         };
 
@@ -399,28 +398,6 @@
 &trans     &kp EXCL  &kp AT          &kp HASH         &kp DLLR  &kp PRCNT                  &kp CARET  &kp AMPERSAND  &kp STAR  &kp LPAR  &kp RPAR       &kp FSLH
 &trans     &pal      &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp PIPE  &kp EQUAL  &trans  &trans  &kp MINUS  &kp PLUS       &kp LBKT  &kp RBKT  &kp BACKSLASH  &kp DOT
                      &trans          &trans           &trans    &trans     &trans  &trans  &trans     &trans         &trans    &trans
-            >;
-        };
-
-        maths_layer {
-            label = "Maths";
-            sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp LEFT RIGHT>;
-            bindings = <
-&kp UNDER  &kp N1    &kp N2  &kp N3  &kp N4  &kp N5                     &kp N6     &kp N7         &kp N8    &kp N9    &kp N0    &trans
-&trans     &kp EXCL  &trans  &trans  &trans  &kp PRCNT                  &kp CARET  &kp AMPERSAND  &kp STAR  &kp LPAR  &kp RPAR  &kp FSLH
-&trans     &wpal     &trans  &trans  &trans  &kp EQUAL  &trans  &trans  &kp MINUS  &kp PLUS       &trans    &trans    &trans    &kp DOT
-                     &trans  &trans  &trans  &trans     &trans  &trans  &tog 3     &trans         &trans    &trans
-            >;
-        };
-
-        settings_layer {
-            label = "Settings";
-            sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp LEFT RIGHT>;
-            bindings = <
-&out OUT_TOG  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans        &bt BT_PRV    &bt BT_NXT    &trans        &trans        &trans                        &trans  &trans  &trans  &trans  &trans  &trans
-&trans        &trans        &bt BT_CLR    &bl BL_DEC    &bl BL_TOG    &bl BL_INC    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                            &trans        &trans        &trans        &tog 4        &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
